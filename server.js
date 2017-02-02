@@ -91,6 +91,7 @@ if(reservationCount <= 5){
 
     // We then display the JSON to the users
     res.json(newWaitlist);
+  });
 }
 // Starts the server to begin listening
 // =============================================================
