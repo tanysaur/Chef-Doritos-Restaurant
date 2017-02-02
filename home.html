@@ -36,41 +36,41 @@
     $("#tableAPI").on("click", function() {
 
       // QUESTION: What does $.get do? What are the parameters it is expecting?
-      $.get("/api/tables" + function(data) {
+      $.get("/api/tables", function(data) {
         
         console.log("it works");
         console.log(data);
-      //   if (data) {
-      //     $("#stats").show();
-      //     $("#name").text(data.name);
-      //     $("#role").text(data.role);
-      //     $("#age").text(data.age);
-      //     $("#force-points").text(data.forcePoints);
-      //   }
-      //   else {
-      //     $("#name").text("The force is not strong with this one. Your character was not found.");
-      //     $("#stats").hide();
-      //   }
-      // });
+        if (data) {
+          $("#name").show();
+          $("#name").text(data.customerName);
+          $("#phone").text(data.phoneNumber);
+          $("#email").text(data.customerEmail);
+          $("#ID").text(data.customerID);
+        }
+        else {
+          $("#name").text("The force is not strong with this one. Your character was not found.");
+          $("#stats").hide();
+        }
+      });
     });
 
     $("#waitlistAPI").on("click", function() {
 
       // QUESTION: What does $.get do? What are the parameters it is expecting?
-      $.get("/api/tables" + function(data) {
+      $.get("/api/waitlist", function(data) {
         console.log("it works");
-      //   if (data) {
-      //     $("#stats").show();
-      //     $("#name").text(data.name);
-      //     $("#role").text(data.role);
-      //     $("#age").text(data.age);
-      //     $("#force-points").text(data.forcePoints);
-      //   }
-      //   else {
-      //     $("#name").text("The force is not strong with this one. Your character was not found.");
-      //     $("#stats").hide();
-      //   }
-      // });
+        if (data) {
+          $("#name").show();
+          $("#name").text(data.customerName);
+          $("#phone").text(data.phoneNumber);
+          $("#email").text(data.customerEmail);
+          $("#ID").text(data.customerID);
+        }
+        else {
+          $("#name").text("The force is not strong with this one. Your character was not found.");
+          $("#stats").hide();
+        }
+      });
     });
   </script>     
 
