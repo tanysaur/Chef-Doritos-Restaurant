@@ -31,6 +31,7 @@ var waitlist = [{
   customerID: "111"
 }];
 
+var reservationCount;
 // Routes
 // =============================================================
 
@@ -63,21 +64,34 @@ app.get("/api/waitlist", function(req, res) {
  res.json(waitlist);
 })
 
+if(reservationCount <= 5){
+  // Create New Characters - takes in JSON input
+  app.post("/reserve", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    var newReservation = req.body;
 
-// Create New Characters - takes in JSON input
-app.post("/reserve", function(req, res) {
-  // req.body hosts is equal to the JSON post sent from the user
-  var newReservation = req.body;
+    console.log(newReservation);
 
-  console.log(newReservation);
+    // We then add the json the user sent to the character array
+    reservations.push(newReservation);
 
-  // We then add the json the user sent to the character array
-  reservations.push(newReservation);
+    // We then display the JSON to the users
+    res.json(newReservation);
+  });
+} else{
+  // Create New Characters - takes in JSON input
+  app.post("/reserve", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    var newWaitlist = req.body;
 
-  // We then display the JSON to the users
-  res.json(newReservation);
-});
+    console.log(newWaitlist);
 
+    // We then add the json the user sent to the character array
+    reservations.push(newWaitlist);
+
+    // We then display the JSON to the users
+    res.json(newWaitlist);
+}
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
