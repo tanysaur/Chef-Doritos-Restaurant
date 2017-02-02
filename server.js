@@ -48,7 +48,7 @@ app.get("/view", function(req, res) {
 
 app.get("/make", function(req, res) {
   
-  res.sendFile(path.join(__dirname, "make.html"));
+  res.sendFile(path.join(__dirname, "reserv.html"));
 });
 
 // Search for Specific Character (or all characters) - provides JSON
